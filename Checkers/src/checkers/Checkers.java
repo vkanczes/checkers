@@ -33,7 +33,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     Help hp=new Help();
 
     JLabel modeText=new JLabel("Mode");
-    JLabel colorText=new JLabel("Colour");
+    JLabel colorText=new JLabel("Color");
     JLabel difficultyLevelText=new JLabel("Difficulty Level");
     JLabel redCheckerImage=new JLabel();
     JLabel redCheckerText=new JLabel("Opponent's Piece");
@@ -438,7 +438,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 			{
                 CheckerMove.moveComputer(board, result);
                 if (loser == empty){
-                    new PlaySound("Checkers/src/sounds/comPlay.wav").start();
+                    new PlaySound("src//sounds//comPlay.wav").start();
                     play();
                 }
 
