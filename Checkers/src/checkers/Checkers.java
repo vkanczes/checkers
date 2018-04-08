@@ -17,10 +17,10 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     ImageIcon snp=new ImageIcon(new ImageIcon(getClass().getResource("/images/sound.jpg")).getImage());//sound.jpg
     ImageIcon mup=new ImageIcon(new ImageIcon(getClass().getResource("/images/mute.jpg")).getImage());//mute.jpg
 
-    JButton nwB=new JButton("New Game");
-    JButton unB=new JButton("Undo");
-    JButton hlpB=new JButton(hlp);
-    JButton snB=new JButton(snp);
+    JButton newGameButton=new JButton("New Game");
+    JButton undoButton=new JButton("Undo");
+    JButton helpButton=new JButton(hlp);
+    JButton soundButton=new JButton(snp);
 
     ButtonGroup players = new ButtonGroup();
     JRadioButton p1 = new JRadioButton("1-Player", true);
@@ -35,16 +35,16 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     JLabel mode=new JLabel("Mode");
     JLabel col=new JLabel("Colour");
     JLabel diff=new JLabel("Difficulty Level");
-    JLabel rp=new JLabel();
-    JLabel rpt=new JLabel("Your Piece");
-    JLabel bpt=new JLabel("Opponent's Piece");
-    JLabel bp=new JLabel();
-    JLabel rk=new JLabel();
-    JLabel rkt=new JLabel("Your King");
-    JLabel bkt=new JLabel("Opponent's King");
-    JLabel bk=new JLabel();
+    JLabel redCheckerImage=new JLabel();
+    JLabel redCheckerText=new JLabel("Your Piece");
+    JLabel yellowCheckerText=new JLabel("Opponent's Piece");
+    JLabel yellowCheckerImage=new JLabel();
+    JLabel redKingCheckerImage=new JLabel();
+    JLabel redKingCheckerText=new JLabel("Your King");
+    JLabel yellowKingCheckerText=new JLabel("Opponent's King");
+    JLabel yellowKingCheckerImage=new JLabel();
 
-    JComboBox level=new JComboBox();
+    JComboBox<String> level=new JComboBox<String>();
 
     String selectedColor;
     int selectedMode;
@@ -90,14 +90,14 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     private void setupGUI(){
         setLayout(null);
 
-        nwB.setFocusPainted(false);
-        unB.setFocusPainted(false);
+        newGameButton.setFocusPainted(false);
+        undoButton.setFocusPainted(false);
         c1.setFocusPainted(false);
         c2.setFocusPainted(false);
         p1.setFocusPainted(false);
         p2.setFocusPainted(false);
-        hlpB.setFocusPainted(false);
-        snB.setFocusPainted(false);
+        helpButton.setFocusPainted(false);
+        soundButton.setFocusPainted(false);
 
         diff.setFont(new Font("SansSerif",Font.PLAIN,11));
         col.setFont(new Font("SansSerif",Font.PLAIN,11));
@@ -106,28 +106,28 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setFont(new Font("SansSerif",Font.PLAIN,11));
         p1.setFont(new Font("SansSerif",Font.PLAIN,11));
         p2.setFont(new Font("SansSerif",Font.PLAIN,11));
-        nwB.setFont(new Font("SansSerif",Font.BOLD,11));
-        unB.setFont(new Font("SansSerif",Font.BOLD,11));
-        hlpB.setFont(new Font("SansSerif",Font.PLAIN,11));
-        snB.setFont(new Font("SansSerif",Font.PLAIN,11));
+        newGameButton.setFont(new Font("SansSerif",Font.BOLD,11));
+        undoButton.setFont(new Font("SansSerif",Font.BOLD,11));
+        helpButton.setFont(new Font("SansSerif",Font.PLAIN,11));
+        soundButton.setFont(new Font("SansSerif",Font.PLAIN,11));
         msg.setFont(new Font("SansSerif",Font.PLAIN,11)); 
 
-        nwB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        unB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        hlpB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        snB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        nwB.addActionListener(this);
-        unB.addActionListener(this);
-        hlpB.addActionListener(this);
-        snB.addActionListener(this);
-        nwB.setBounds(405,70,95,25);//297
-        this.add(nwB);
-        unB.setBounds(405,100,95,25);
-        //this.add(unB);
-        hlpB.setBounds(415,10,25,25);
-        this.add(hlpB);
-        snB.setBounds(460,10,25,25);
-        this.add(snB);
+        newGameButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        undoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        helpButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        soundButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        newGameButton.addActionListener(this);
+        undoButton.addActionListener(this);
+        helpButton.addActionListener(this);
+        soundButton.addActionListener(this);
+        newGameButton.setBounds(405,70,95,25);//297
+        this.add(newGameButton);
+        undoButton.setBounds(405,100,95,25);
+        this.add(undoButton);
+        helpButton.setBounds(415,10,25,25);
+        this.add(helpButton);
+        soundButton.setBounds(460,10,25,25);
+        this.add(soundButton);
 
         mode.setBounds(420,260,80,25);
         this.add(mode);
@@ -137,23 +137,23 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         p2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         players.add(p1);
         players.add(p2);
-        p1.setBounds(415,290,80,25);
-        p2.setBounds(415,318,80,25);
+        p1.setBounds(415,280,80,25);
+        p2.setBounds(415,300,80,25);
         this.add(p1);
         this.add(p2);
 
-        col.setBounds(110,400,80,25);
-        //this.add(col);
+        col.setBounds(420,348,80,25);
+        this.add(col);
         c1.addActionListener(this);
         c2.addActionListener(this);
         c1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         c2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         colors.add(c1);
         colors.add(c2);
-        c1.setBounds(90,440,80,25);
-        c2.setBounds(90,420,80,25);
-        //this.add(c1);
-        //this.add(c2);
+        c1.setBounds(415,368,80,25);
+        c2.setBounds(415,388,80,25);
+        this.add(c1);
+        this.add(c2);
 
         level.setCursor(new Cursor(Cursor.HAND_CURSOR));
         level.addItemListener(this);
@@ -177,29 +177,33 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         msg.setEnabled(false);
         this.add(msg);
 
-        rp.setBounds(10, 440, 50, 50);
-        rp.setIcon(redN);
-        this.add(rp);
-        rpt.setBounds(60, 450, 60, 20);
-        this.add(rpt);
+        // red checker and text
+        redCheckerImage.setBounds(10, 450, 50, 50);  // original 10,440,50,50
+        redCheckerImage.setIcon(redN);
+        this.add(redCheckerImage);
+        redCheckerText.setBounds(10, 430, 100, 20); // original 60,450,60,20
+        this.add(redCheckerText);
 
-        bp.setBounds(110, 440, 50, 50);
-        bp.setIcon(yellowN);
-        this.add(bp);
-        bpt.setBounds(160, 450, 90, 20);
-        this.add(bpt);
-
-        rk.setBounds(250, 440, 50, 50);
-        rk.setIcon(redK);
-        this.add(rk);
-        rkt.setBounds(305, 450, 60, 20);
-        this.add(rkt);
-
-        bk.setBounds(365, 440, 50, 50);
-        bk.setIcon(yellowK);
-        this.add(bk);
-        bkt.setBounds(420, 450, 100, 20);
-        this.add(bkt);
+        // yellow checker and text
+        yellowCheckerImage.setBounds(110, 450, 50, 50); // original 110,440,50,50
+        yellowCheckerImage.setIcon(yellowN);
+        this.add(yellowCheckerImage);
+        yellowCheckerText.setBounds(110, 430, 110, 20);  //original 160,450,90,20
+        this.add(yellowCheckerText);
+        
+        // red king checker and text
+        redKingCheckerImage.setBounds(250, 450, 50, 50);  // original 250,440,50,50
+        redKingCheckerImage.setIcon(redK);
+        this.add(redKingCheckerImage);
+        redKingCheckerText.setBounds(250, 430, 110, 20); // original 305,450,60,20
+        this.add(redKingCheckerText);
+        
+        // yellow king checker and text
+        yellowKingCheckerImage.setBounds(365, 450, 50, 50);
+        yellowKingCheckerImage.setIcon(yellowK);
+        this.add(yellowKingCheckerImage);
+        yellowKingCheckerText.setBounds(365, 430, 110, 20);
+        this.add(yellowKingCheckerText);
 
         //g=getGraphics();
         //g.drawImage(redN.getImage(),30,450,this);
@@ -227,7 +231,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("1-Player")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src//sounds//option.wav").start();
             col.setEnabled(true);
             col.setVisible(true);
             diff.setEnabled(true);
@@ -240,7 +244,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             level.setVisible(true);
         }
         if(e.getActionCommand().equalsIgnoreCase("2-Player")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src//sounds//option.wav").start();
             col.setEnabled(false);
             col.setVisible(false);
             diff.setEnabled(false);
@@ -254,31 +258,31 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             c2.setSelected(true);
         }
         if(e.getActionCommand().equalsIgnoreCase("red")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src//sounds//option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("yellow")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src//sounds/option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("New Game")){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src//sounds//button.wav").start();
             newGame();
         }
         if(e.getActionCommand().equalsIgnoreCase("Undo") && undoCount>3){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src//sounds//button.wav").start();
             undo();
         }
-        if(e.getSource()==hlpB){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+        if(e.getSource()==helpButton){
+            new PlaySound("src//sounds//button.wav").start();
             hp.setVisible(true);
         }
-        if(e.getSource()==snB){
+        if(e.getSource()==soundButton){
             if(silent){
-                snB.setIcon(snp);
+                soundButton.setIcon(snp);
                 silent=false;
-                new PlaySound("Checkers/src/sounds/button.wav").start();
+                new PlaySound("src//sounds//button.wav").start();
             }
             else{
-                snB.setIcon(mup);
+                soundButton.setIcon(mup);
                 silent=true;
             }
         }
@@ -294,7 +298,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         selectedMode=p1.isSelected()?1:2;
         difficulty=level.getSelectedIndex();
 
-        unB.setEnabled(false);
+        undoButton.setEnabled(false);
 
         won=0;
 
@@ -383,9 +387,9 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
         if(undoCount>3){
             if(selectedMode==1 && difficulty!=4)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
             else if(selectedMode==2)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
         }
         
         for(int i=0;i<8;i++){
@@ -415,7 +419,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                 CheckerMove.moveComputer(board, result);
 
                 if (loser == empty){
-                    new PlaySound("Checkers/src/sounds/comPlay.wav").start();
+                    new PlaySound("src//sounds//comPlay.wav").start();
                     play();
                 }
                 this.toMove = yellowNormal;
@@ -492,7 +496,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                 g.setColor(new Color(255,100,30));
                 g.fillRect(50*square[0],50*square[1],50,50);                 
                 drawCheckers();
-                new PlaySound("Checkers/src/sounds/clickChecker.wav").start();
+                new PlaySound("src//sounds//clickChecker.wav").start();
             }
 		}
 		else if ( highlight  && (float)(square[0]+square[1]) / 2 != (square[0]+square[1]) / 2)

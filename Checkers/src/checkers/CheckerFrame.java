@@ -18,13 +18,15 @@ public class CheckerFrame extends JFrame implements ActionListener{
            //no need to handle exception as it only affect the appearance
         }
         setupGUI();
-        new PlaySound("Checkers/src/sounds/Start.wav").start();
+        new PlaySound("src/sounds/Start.wav").start();
     }
 
     private void setupGUI() {
         setLayout(null);
-        gmP.setBounds(0,0,508,401);//400,401
-        //gmP.imageUpdate(ne, WIDTH, WIDTH, WIDTH, WIDTH, WIDTH)
+        gmP.setBounds(0,0,400,401);
+
+        // may need to remove this
+        gmP.imageUpdate(null, 0, 0, 608, 401, getDefaultCloseOperation());
         add(gmP);
         stB.setHorizontalAlignment(SwingConstants.LEADING);
         stB.setIcon(new ImageIcon(getClass().getResource("/images/checker.jpg")));
@@ -50,9 +52,9 @@ public class CheckerFrame extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("Start Game")){
             ((JButton)e.getSource()).setText("New Game");
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src//sounds//button.wav").start();
             gmP=new Checkers();
-            gmP.setBounds(0,0,508,401);
+            gmP.setBounds(0,0,608,501);
             this.setContentPane(gmP);
         }
     }
