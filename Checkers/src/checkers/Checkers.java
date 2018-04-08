@@ -178,28 +178,28 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         this.add(msg);
 
      // yellow checker and text
-        yellowCheckerImage.setBounds(10, 450, 50, 50); // original 110,440,50,50
+        yellowCheckerImage.setBounds(10, 450, 50, 40); // original 110,440,50,50
         yellowCheckerImage.setIcon(yellowN);
         this.add(yellowCheckerImage);
         yellowCheckerText.setBounds(10, 430, 100, 20);  //original 160,450,90,20
         this.add(yellowCheckerText);
         
         // red checker and text
-        redCheckerImage.setBounds(110, 450, 50, 50);  // original 10,440,50,50
+        redCheckerImage.setBounds(110, 450, 50, 40);  // original 10,440,50,50
         redCheckerImage.setIcon(redN);
         this.add(redCheckerImage);
         redCheckerText.setBounds(110, 430, 110, 20); // original 60,450,60,20
         this.add(redCheckerText);
 
      // yellow king checker and text
-        yellowKingCheckerImage.setBounds(250, 450, 50, 50);
+        yellowKingCheckerImage.setBounds(250, 450, 50, 40);
         yellowKingCheckerImage.setIcon(yellowK);
         this.add(yellowKingCheckerImage);
         yellowKingCheckerText.setBounds(250, 430, 110, 20);
         this.add(yellowKingCheckerText);
         
         // red king checker and text
-        redKingCheckerImage.setBounds(365, 450, 50, 50);  // original 250,440,50,50
+        redKingCheckerImage.setBounds(365, 450, 50, 40);  // original 250,440,50,50
         redKingCheckerImage.setIcon(redK);
         this.add(redKingCheckerImage);
         redKingCheckerText.setBounds(365, 430, 110, 20); // original 305,450,60,20
@@ -258,9 +258,17 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             c2.setSelected(true);
         }
         if(e.getActionCommand().equalsIgnoreCase("red")){
+            yellowCheckerImage.setIcon(redN);
+            redCheckerImage.setIcon(yellowN);
+            yellowKingCheckerImage.setIcon(redK);
+            redKingCheckerImage.setIcon(yellowK);
             new PlaySound("src//sounds//option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("yellow")){
+            yellowCheckerImage.setIcon(yellowN);
+            redCheckerImage.setIcon(redN);
+            yellowKingCheckerImage.setIcon(yellowK);
+            redKingCheckerImage.setIcon(redK);
             new PlaySound("src//sounds/option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("New Game")){
