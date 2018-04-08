@@ -123,7 +123,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         nwB.setBounds(405,70,95,25);//297
         this.add(nwB);
         unB.setBounds(405,100,95,25);
-        //this.add(unB);
+        this.add(unB);
         hlpB.setBounds(415,10,25,25);
         this.add(hlpB);
         snB.setBounds(460,10,25,25);
@@ -137,23 +137,23 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         p2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         players.add(p1);
         players.add(p2);
-        p1.setBounds(415,290,80,25);
-        p2.setBounds(415,318,80,25);
+        p1.setBounds(415,280,80,25);
+        p2.setBounds(415,300,80,25);
         this.add(p1);
         this.add(p2);
 
-        col.setBounds(110,400,80,25);
-        //this.add(col);
+        col.setBounds(420,348,80,25);
+        this.add(col);
         c1.addActionListener(this);
         c2.addActionListener(this);
         c1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         c2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         colors.add(c1);
         colors.add(c2);
-        c1.setBounds(90,440,80,25);
-        c2.setBounds(90,420,80,25);
-        //this.add(c1);
-        //this.add(c2);
+        c1.setBounds(415,368,80,25);
+        c2.setBounds(415,388,80,25);
+        this.add(c1);
+        this.add(c2);
 
         level.setCursor(new Cursor(Cursor.HAND_CURSOR));
         level.addItemListener(this);
@@ -227,7 +227,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("1-Player")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src/sounds/option.wav").start();
             col.setEnabled(true);
             col.setVisible(true);
             diff.setEnabled(true);
@@ -240,7 +240,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             level.setVisible(true);
         }
         if(e.getActionCommand().equalsIgnoreCase("2-Player")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src/sounds/option.wav").start();
             col.setEnabled(false);
             col.setVisible(false);
             diff.setEnabled(false);
@@ -254,28 +254,28 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             c2.setSelected(true);
         }
         if(e.getActionCommand().equalsIgnoreCase("red")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src/sounds/option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("yellow")){
-            new PlaySound("Checkers/src/sounds/option.wav").start();
+            new PlaySound("src/sounds/option.wav").start();
         }
         if(e.getActionCommand().equalsIgnoreCase("New Game")){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src/sounds/button.wav").start();
             newGame();
         }
         if(e.getActionCommand().equalsIgnoreCase("Undo") && undoCount>3){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src/sounds/button.wav").start();
             undo();
         }
         if(e.getSource()==hlpB){
-            new PlaySound("Checkers/src/sounds/button.wav").start();
+            new PlaySound("src/sounds/button.wav").start();
             hp.setVisible(true);
         }
         if(e.getSource()==snB){
             if(silent){
                 snB.setIcon(snp);
                 silent=false;
-                new PlaySound("Checkers/src/sounds/button.wav").start();
+                new PlaySound("src/sounds/button.wav").start();
             }
             else{
                 snB.setIcon(mup);
@@ -415,7 +415,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                 CheckerMove.moveComputer(board, result);
 
                 if (loser == empty){
-                    new PlaySound("Checkers/src/sounds/comPlay.wav").start();
+                    new PlaySound("src/sounds/comPlay.wav").start();
                     play();
                 }
                 this.toMove = yellowNormal;
@@ -434,7 +434,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 			{
                 CheckerMove.moveComputer(board, result);
                 if (loser == empty){
-                    new PlaySound("Checkers/src/sounds/comPlay.wav").start();
+                    new PlaySound("src/sounds/comPlay.wav").start();
                     play();
                 }
 
@@ -492,7 +492,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
                 g.setColor(new Color(255,100,30));
                 g.fillRect(50*square[0],50*square[1],50,50);                 
                 drawCheckers();
-                new PlaySound("Checkers/src/sounds/clickChecker.wav").start();
+                new PlaySound("src/sounds/clickChecker.wav").start();
             }
 		}
 		else if ( highlight  && (float)(square[0]+square[1]) / 2 != (square[0]+square[1]) / 2)
