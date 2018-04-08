@@ -32,9 +32,9 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     Help hp=new Help();
 
-    JLabel mode=new JLabel("Mode");
-    JLabel col=new JLabel("Colour");
-    JLabel diff=new JLabel("Difficulty Level");
+    JLabel modeText=new JLabel("Mode");
+    JLabel colorText=new JLabel("Colour");
+    JLabel difficultyLevelText=new JLabel("Difficulty Level");
     JLabel redCheckerImage=new JLabel();
     JLabel redCheckerText=new JLabel("Oppenent's Piece");
     JLabel yellowCheckerText=new JLabel("Your Piece");
@@ -44,7 +44,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     JLabel yellowKingCheckerText=new JLabel("Your King");
     JLabel yellowKingCheckerImage=new JLabel();
 
-    JComboBox<String> level=new JComboBox<String>();
+    JComboBox<String> level = new JComboBox<String>();
 
     String selectedColor;
     int selectedMode;
@@ -99,9 +99,9 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         helpButton.setFocusPainted(false);
         soundButton.setFocusPainted(false);
 
-        diff.setFont(new Font("SansSerif",Font.PLAIN,11));
-        col.setFont(new Font("SansSerif",Font.PLAIN,11));
-        mode.setFont(new Font("SansSerif",Font.PLAIN,11));
+        difficultyLevelText.setFont(new Font("SansSerif",Font.PLAIN,11));
+        colorText.setFont(new Font("SansSerif",Font.PLAIN,11));
+        modeText.setFont(new Font("SansSerif",Font.PLAIN,11));
         c1.setFont(new Font("SansSerif",Font.PLAIN,11));
         c2.setFont(new Font("SansSerif",Font.PLAIN,11));
         p1.setFont(new Font("SansSerif",Font.PLAIN,11));
@@ -129,8 +129,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         soundButton.setBounds(460,10,25,25);
         this.add(soundButton);
 
-        mode.setBounds(420,260,80,25);
-        this.add(mode);
+        modeText.setBounds(420,260,80,25);
+        this.add(modeText);
         p1.addActionListener(this);
         p2.addActionListener(this);
         p1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -142,8 +142,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         this.add(p1);
         this.add(p2);
 
-        col.setBounds(420,348,80,25);
-        this.add(col);
+        colorText.setBounds(420,348,80,25);
+        this.add(colorText);
         c1.addActionListener(this);
         c2.addActionListener(this);
         c1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -163,12 +163,12 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         level.addItem("Bit Difficult");
         level.addItem("Tough");
         level.setSelectedIndex(2);
-        level.setBounds(415,200,80,25);
+        level.setBounds(400,200,110,25);  // original 415,200,80,25
         this.add(level);
 
-        diff.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        diff.setBounds(415,170,100,25);
-        this.add(diff);
+        difficultyLevelText.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        difficultyLevelText.setBounds(415,170,100,25);
+        this.add(difficultyLevelText);
 
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
@@ -232,10 +232,10 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("1-Player")){
             new PlaySound("src//sounds//option.wav").start();
-            col.setEnabled(true);
-            col.setVisible(true);
-            diff.setEnabled(true);
-            diff.setVisible(true);
+            colorText.setEnabled(true);
+            colorText.setVisible(true);
+            difficultyLevelText.setEnabled(true);
+            difficultyLevelText.setVisible(true);
             c1.setEnabled(true);
             c1.setVisible(true);
             c2.setEnabled(true);
@@ -245,10 +245,10 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         }
         if(e.getActionCommand().equalsIgnoreCase("2-Player")){
             new PlaySound("src//sounds//option.wav").start();
-            col.setEnabled(false);
-            col.setVisible(false);
-            diff.setEnabled(false);
-            diff.setVisible(false);
+            colorText.setEnabled(false);
+            colorText.setVisible(false);
+            difficultyLevelText.setEnabled(false);
+            difficultyLevelText.setVisible(false);
             c1.setEnabled(false);
             c1.setVisible(false);
             c2.setEnabled(false);
