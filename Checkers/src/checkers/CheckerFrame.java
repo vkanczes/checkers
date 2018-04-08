@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.*;
 
 public class CheckerFrame extends JFrame implements ActionListener{
-    JButton stB=new JButton("Start Game");
+    JButton startGameButtonText=new JButton("Start Game");
     JPanel gmP=new StartPanel();
   
     CheckerFrame(){
@@ -28,15 +28,15 @@ public class CheckerFrame extends JFrame implements ActionListener{
         // may need to remove this
         gmP.imageUpdate(null, 0, 0, 608, 401, getDefaultCloseOperation());
         add(gmP);
-        stB.setHorizontalAlignment(SwingConstants.LEADING);
-        stB.setIcon(new ImageIcon(getClass().getResource("/images/checker.jpg")));
-        stB.setBackground(Color.LIGHT_GRAY);
-        stB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        stB.setBounds(154,420,200,60);
-        stB.setFont(new Font("Times new roman",Font.BOLD,20));
-        stB.addActionListener(this);
-        stB.setFocusPainted(false);
-        add(stB);
+        startGameButtonText.setHorizontalAlignment(SwingConstants.LEADING);
+        startGameButtonText.setIcon(new ImageIcon(getClass().getResource("/images/checker.jpg")));
+        startGameButtonText.setBackground(Color.LIGHT_GRAY);
+        startGameButtonText.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        startGameButtonText.setBounds(100,405,300,90);  // original 154,420,200,60
+        startGameButtonText.setFont(new Font("Times new roman",Font.BOLD,20));
+        startGameButtonText.addActionListener(this);
+        startGameButtonText.setFocusPainted(false);
+        add(startGameButtonText);
 
         this.setIconImage(new ImageIcon(getClass().getResource("/images/icon.jpg")).getImage());
 
