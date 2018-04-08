@@ -36,12 +36,12 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     JLabel col=new JLabel("Colour");
     JLabel diff=new JLabel("Difficulty Level");
     JLabel redCheckerImage=new JLabel();
-    JLabel redCheckerText=new JLabel("Your Piece");
-    JLabel yellowCheckerText=new JLabel("Opponent's Piece");
+    JLabel redCheckerText=new JLabel("Oppenent's Piece");
+    JLabel yellowCheckerText=new JLabel("Your Piece");
     JLabel yellowCheckerImage=new JLabel();
     JLabel redKingCheckerImage=new JLabel();
-    JLabel redKingCheckerText=new JLabel("Your King");
-    JLabel yellowKingCheckerText=new JLabel("Opponent's King");
+    JLabel redKingCheckerText=new JLabel("Oppenent's King");
+    JLabel yellowKingCheckerText=new JLabel("Your King");
     JLabel yellowKingCheckerImage=new JLabel();
 
     JComboBox<String> level=new JComboBox<String>();
@@ -177,33 +177,33 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         msg.setEnabled(false);
         this.add(msg);
 
-        // red checker and text
-        redCheckerImage.setBounds(10, 450, 50, 50);  // original 10,440,50,50
-        redCheckerImage.setIcon(redN);
-        this.add(redCheckerImage);
-        redCheckerText.setBounds(10, 430, 100, 20); // original 60,450,60,20
-        this.add(redCheckerText);
-
-        // yellow checker and text
-        yellowCheckerImage.setBounds(110, 450, 50, 50); // original 110,440,50,50
+     // yellow checker and text
+        yellowCheckerImage.setBounds(10, 450, 50, 50); // original 110,440,50,50
         yellowCheckerImage.setIcon(yellowN);
         this.add(yellowCheckerImage);
-        yellowCheckerText.setBounds(110, 430, 110, 20);  //original 160,450,90,20
+        yellowCheckerText.setBounds(10, 430, 100, 20);  //original 160,450,90,20
         this.add(yellowCheckerText);
         
-        // red king checker and text
-        redKingCheckerImage.setBounds(250, 450, 50, 50);  // original 250,440,50,50
-        redKingCheckerImage.setIcon(redK);
-        this.add(redKingCheckerImage);
-        redKingCheckerText.setBounds(250, 430, 110, 20); // original 305,450,60,20
-        this.add(redKingCheckerText);
-        
-        // yellow king checker and text
-        yellowKingCheckerImage.setBounds(365, 450, 50, 50);
+        // red checker and text
+        redCheckerImage.setBounds(110, 450, 50, 50);  // original 10,440,50,50
+        redCheckerImage.setIcon(redN);
+        this.add(redCheckerImage);
+        redCheckerText.setBounds(110, 430, 110, 20); // original 60,450,60,20
+        this.add(redCheckerText);
+
+     // yellow king checker and text
+        yellowKingCheckerImage.setBounds(250, 450, 50, 50);
         yellowKingCheckerImage.setIcon(yellowK);
         this.add(yellowKingCheckerImage);
-        yellowKingCheckerText.setBounds(365, 430, 110, 20);
+        yellowKingCheckerText.setBounds(250, 430, 110, 20);
         this.add(yellowKingCheckerText);
+        
+        // red king checker and text
+        redKingCheckerImage.setBounds(365, 450, 50, 50);  // original 250,440,50,50
+        redKingCheckerImage.setIcon(redK);
+        this.add(redKingCheckerImage);
+        redKingCheckerText.setBounds(365, 430, 110, 20); // original 305,450,60,20
+        this.add(redKingCheckerText);
 
         //g=getGraphics();
         //g.drawImage(redN.getImage(),30,450,this);
