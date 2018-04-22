@@ -267,7 +267,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             new PlaySound("Checkers/src/sounds/button.wav").start();
             newGame();
         }
-        if(e.getActionCommand().equalsIgnoreCase("Undo") && undoCount>3){
+        if(e.getActionCommand().equalsIgnoreCase("Undo") && undoCount>1){
             new PlaySound("Checkers/src/sounds/button.wav").start();
             undo();
         }
@@ -385,7 +385,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
         undoCount++;
 
-        if(undoCount>3){
+        if(undoCount>1){
             if(selectedMode==1 && difficulty!=4)
                 undoButton.setEnabled(true);
             else if(selectedMode==2)
